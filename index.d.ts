@@ -3,6 +3,7 @@ import {
 	type BrowserWindow,
 	type DownloadItem,
 	type SaveDialogOptions,
+	type WebContents,
 } from 'electron';
 
 export type Progress = {
@@ -178,7 +179,7 @@ ipcMain.on('download-button', async (event, {url}) => {
 ```
 */
 export function download(
-	window: BrowserWindow | BrowserView,
+	window: { webContents: Electron.WebContents },
 	url: string,
 	options?: Options
 ): Promise<DownloadItem>;
